@@ -42,7 +42,7 @@ class LinkedArrayNode<T> {
 		return array.length;
 	}
 	
-	public boolean contains(T object){
+	public boolean contains(Object object){
 		boolean contains = false;
 			for (int i = 0; i < array.length; i++) {
 				contains = object.equals(array[i]);

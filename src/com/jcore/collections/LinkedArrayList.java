@@ -1,5 +1,6 @@
 package com.jcore.collections;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -62,7 +63,15 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public boolean contains(Object o) {
-		return false;
+		boolean contains = false;
+		Iterator<LinkedArrayNode<T>> iterator = linkedList.iterator();
+		boolean look = true;
+		while(iterator.hasNext() && look){
+			LinkedArrayNode<T> node = iterator.next();
+			contains = node.contains(o);
+			look = !contains;
+		}
+		return contains;
 	}
 
 	@Override
@@ -146,12 +155,16 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public Object[] toArray() {
+		
 		return null;
 	}
 
+	@SuppressWarnings("hiding")
 	@Override
 	public <T> T[] toArray(T[] a) {
-		return null;
+		@SuppressWarnings("unchecked")
+		T[] arr = (T[]) Array.newInstance(a.getClass().getComponentType(), 10);
+		return arr;
 	}
 
 }

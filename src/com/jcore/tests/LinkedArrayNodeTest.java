@@ -12,7 +12,9 @@ public class LinkedArrayNodeTest {
 		for (int i = 0; i < 20; i++) {
 			list.add(i);	
 		}
-		System.out.println(list);
+		list.toArray(new Integer[0]);
+		
+		System.out.println(list.contains(12));
 	}
 
 }
