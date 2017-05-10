@@ -77,8 +77,15 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-
-		return false;
+		boolean containsAll = false;
+		Iterator<?> iterator = c.iterator();
+		boolean look = true;
+		while(iterator.hasNext() && look){
+			Object item = iterator.next();
+			containsAll = contains(item);
+			look = containsAll;
+		}
+		return containsAll;
 	}
 
 	@Override

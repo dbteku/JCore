@@ -1,5 +1,9 @@
 package com.jcore.tests;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.jcore.collections.LinkedArrayList;
@@ -13,8 +17,9 @@ public class LinkedArrayNodeTest {
 			list.add(i);	
 		}
 		list.toArray(new Integer[0]);
-		
-		System.out.println(list.contains(12));
+		Integer[] ints = {0,1,2,3,4,99};
+		List<Integer> test = Arrays.asList(ints);
+		System.out.println(list.containsAll(test));
 	}
 
 }
