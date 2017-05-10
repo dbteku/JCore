@@ -58,7 +58,8 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public void clear() {
-		
+		linkedList.clear();
+		size = 0;
 	}
 
 	@Override
@@ -145,7 +146,7 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	@Override
