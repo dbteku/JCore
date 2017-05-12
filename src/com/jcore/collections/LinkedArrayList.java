@@ -100,7 +100,11 @@ public class LinkedArrayList<T> implements List<T>{
 		if(index > size - 1 || index < 0){
 			throw new IndexOutOfBoundsException();
 		}else{
-			
+			int partition = index / INCREASE_SIZE;
+			LinkedArrayNode<T> node = linkedList.get(partition);
+			//figure linked node.
+			// index / INCREASE_SIZE = partition. 
+			// 
 		}
 		return item;
 	}

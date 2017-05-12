@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.jcore.collections.LinkedArrayList;
 
-public class LinkedArrayNodeTest {
+public class LinkedArrayTest {
 
 	@Test
 	public void addTest() {
@@ -22,7 +22,7 @@ public class LinkedArrayNodeTest {
 	}
 
 	@Test
-	public void getAtIndexIndexCheck(){
+	public void getAtOutOfBoundsTest(){
 		boolean failed = false;
 		LinkedArrayList<Integer> list = new LinkedArrayList<>();
 		for (int i = 0; i < 20; i++) {

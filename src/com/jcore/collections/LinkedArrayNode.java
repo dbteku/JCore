@@ -1,6 +1,8 @@
 package com.jcore.collections;
 
-class LinkedArrayNode<T> {
+import java.util.Iterator;
+
+class LinkedArrayNode<T> implements Iterable<T>{
 
 	private T[] array;
 	private int addIndex;
@@ -72,6 +74,12 @@ class LinkedArrayNode<T> {
 
 	public boolean isFull() {
 		return addIndex == array.length;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		
+		return null;
 	}
 	
 }
