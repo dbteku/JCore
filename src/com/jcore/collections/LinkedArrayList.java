@@ -10,10 +10,16 @@ import java.util.ListIterator;
 public class LinkedArrayList<T> implements List<T>{
 
 	private static final int DEFAULT_SIZE = 10;
+	private final int INCREASE_SIZE;
 	private LinkedList<LinkedArrayNode<T>> linkedList;
 	private int size;
 	
 	public LinkedArrayList() {
+		this(DEFAULT_SIZE);
+	}
+	
+	public LinkedArrayList(int increaseSize){
+		this.INCREASE_SIZE = increaseSize;
 		this.linkedList = new LinkedList<>();
 		this.size = 0;
 	}
@@ -21,11 +27,11 @@ public class LinkedArrayList<T> implements List<T>{
 	@Override
 	public boolean add(T e) {
 		if(linkedList.isEmpty()){
-			linkedList.add(new LinkedArrayNode<>(DEFAULT_SIZE));
+			linkedList.add(new LinkedArrayNode<>(INCREASE_SIZE));
 			addToLast(e);
 		}else{
 			if(linkedList.getLast().isFull()){
-				linkedList.add(new LinkedArrayNode<>(DEFAULT_SIZE));
+				linkedList.add(new LinkedArrayNode<>(INCREASE_SIZE));
 				addToLast(e);
 			}else{
 				addToLast(e);
@@ -90,14 +96,34 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public T get(int index) {
-
-		return null;
+		T item = null;
+		if(index > size - 1 || index < 0){
+			throw new IndexOutOfBoundsException();
+		}else{
+			
+		}
+		return item;
 	}
 
 	@Override
 	public int indexOf(Object o) {
-
-		return 0;
+		int index = -1;
+		int potential = 0;
+		int increasedIndex = 0;
+		Iterator<LinkedArrayNode<T>> iterator = linkedList.iterator();
+		boolean look = true;
+		while(iterator.hasNext() && look){
+			LinkedArrayNode<T> node = iterator.next();
+			potential = node.indexOf(o);
+			if(potential >= 0){
+				index = potential + increasedIndex;
+			}
+			look = index == -1;
+			if(look){
+				increasedIndex += (INCREASE_SIZE);
+			}
+		}
+		return index;
 	}
 
 	@Override

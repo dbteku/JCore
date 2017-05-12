@@ -31,7 +31,7 @@ class LinkedArrayNode<T> {
 	}
 	
 	public T get(int index){
-		return null;
+		return array[index];
 	}
 	
 	public T remove(int index){
@@ -51,6 +51,23 @@ class LinkedArrayNode<T> {
 				}
 			}
 		return contains;
+	}
+	
+	public int indexOf(Object o){
+		int index = -1;
+		for (int i = 0; i < array.length; i++) {
+			if(o.equals(array[i])){
+				index = i;
+				i = array.length;
+			}else{
+				index++;
+				if(index >= array.length - 1){
+					i = array.length;
+					index = -1;
+				}	
+			}
+		}
+		return index;
 	}
 
 	public boolean isFull() {
