@@ -184,20 +184,24 @@ public class LinkedArrayList<T> implements List<T>{
 
 	@Override
 	public List<T> subList(int fromIndex, int toIndex) {
-		return null;
+		List<T> linkedArray = new LinkedArrayList<>();
+		// foreach add from index to index;
+		return linkedArray;
 	}
 
 	@Override
 	public Object[] toArray() {
-		
-		return null;
+		Object[] array = new Object[size];
+		// foreach add to array and return;
+		return array;
 	}
 
 	@SuppressWarnings("hiding")
 	@Override
 	public <T> T[] toArray(T[] a) {
 		@SuppressWarnings("unchecked")
-		T[] arr = (T[]) Array.newInstance(a.getClass().getComponentType(), 10);
+		T[] arr = (T[]) Array.newInstance(a.getClass().getComponentType(), size);
+		// foreach add to array and return;
 		return arr;
 	}
 
