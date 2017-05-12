@@ -2,6 +2,8 @@ package com.jcore.collections;
 
 import java.util.Iterator;
 
+import com.jcore.tools.ArrayIterator;
+
 class LinkedArrayNode<T> implements Iterable<T>{
 
 	private T[] array;
@@ -78,8 +80,7 @@ class LinkedArrayNode<T> implements Iterable<T>{
 
 	@Override
 	public Iterator<T> iterator() {
-		
-		return null;
+		return new ArrayIterator<>(array, 0, addIndex - 1);
 	}
 	
 }
